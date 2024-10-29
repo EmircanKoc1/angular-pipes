@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
 import { DuplicatePipe } from './custom-pipes/duplicate.pipe';
 import { OrderItem } from './models/order-item.model';
 import { TotalPricePipe } from './custom-pipes/total-price.pipe';
+import { PersonInfoImpurePipe } from './custom-pipes/pure-and-impure-pipes/person-info-impure.pipe';
+import { PersonInfoPurePipe } from './custom-pipes/pure-and-impure-pipes/person-info-pure.pipe';
+import { Person } from './models/person.model';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +29,9 @@ import { TotalPricePipe } from './custom-pipes/total-price.pipe';
     TitleCasePipe,
     UpperCasePipe,
     DuplicatePipe,
-    TotalPricePipe
+    TotalPricePipe,
+    PersonInfoImpurePipe,
+    PersonInfoPurePipe
   ]
 })
 export class AppComponent {
@@ -34,7 +39,7 @@ export class AppComponent {
   today: Date = new Date();
   message: string = "This is a normal message"
   price: number = 1290.99;
-  person: {
+  objPerson: {
     name: string,
     surname: string
   } = {
@@ -52,4 +57,24 @@ export class AppComponent {
     quantity: 3,
     unitPrice: 1300.99
   };
+
+  person: Person = {
+    name: "emircan",
+    surname: "koç",
+    age: 22
+  };
+
+  changePersonData(): void {
+    this.person.age = 33;
+  }
+
+  changePersonReferance(): void {
+    this.person = {
+      name: "ahmet",
+      surname: "yılmaz",
+      age: 44
+    };
+    
+  }
+
 }

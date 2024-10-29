@@ -14,10 +14,11 @@ Currency pipe : {{price | currency:"USD"}}
 <br>
 Decimal Pipe : {{price | number:"1.2-2"}}
 <br>
-Json Pipe : {{person | json}}
+Json Pipe : {{objPerson | json}}
 <br>
 Async Pipe : {{helloWorld$ | async}}
-
+<br>
+<br>
 custom pipes
 <br>
 -----------------------------------------
@@ -25,3 +26,16 @@ custom pipes
 duplicate pipe : {{message | duplicate:2}}
 <br>
 total price pipe : {{orderItem | totalPrice}}
+<br>
+<br>
+impure and pure pipes
+<br>
+-----------------------------------------
+<br>
+pure: {{person | personInfoPure}}
+<br>
+impure : {{person | personInfoImpure}}
+
+<br>
+<button (click)="changePersonData()">Change person Data</button>
+<button (click)="changePersonReferance()">Change person referance</button>
