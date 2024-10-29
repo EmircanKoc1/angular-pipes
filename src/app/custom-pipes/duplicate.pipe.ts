@@ -6,8 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DuplicatePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: string, duplicateCount: number): string {
+    const processedValue: string = value.concat(" ");
+    return processedValue.repeat(duplicateCount);
   }
 
 }

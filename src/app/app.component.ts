@@ -2,6 +2,9 @@ import { AsyncPipe, CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, KeyValuePipe,
 import { Component, Pipe } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
+import { DuplicatePipe } from './custom-pipes/duplicate.pipe';
+import { OrderItem } from './models/order-item.model';
+import { TotalPricePipe } from './custom-pipes/total-price.pipe';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +24,9 @@ import { Observable } from 'rxjs';
     PercentPipe,
     SlicePipe,
     TitleCasePipe,
-    UpperCasePipe
+    UpperCasePipe,
+    DuplicatePipe,
+    TotalPricePipe
   ]
 })
 export class AppComponent {
@@ -41,4 +46,10 @@ export class AppComponent {
     observer.next("Hello");
     observer.next("World");
   });
+
+  orderItem: OrderItem = {
+    name: "phone",
+    quantity: 3,
+    unitPrice: 1300.99
+  };
 }
